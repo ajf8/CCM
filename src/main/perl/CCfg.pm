@@ -66,6 +66,12 @@ Readonly::Array our @CONFIG_OPTIONS => (
     },
 
     {
+        option => 'proxy',
+        suffix => '=s',
+        HELP   => 'Proxy to use for HTTP(S)',
+    },
+
+    {
         option => 'context',
         suffix => '|c=s',
         HELP    => 'URL of context to fetch',

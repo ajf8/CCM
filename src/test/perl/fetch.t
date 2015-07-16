@@ -13,7 +13,7 @@ Script that tests the EDG::WP4::CCM::Fetch module.
 
 use strict;
 use warnings;
-use Test::More tests => 50;
+use Test::More tests => 51;
 use EDG::WP4::CCM::Fetch;
 use EDG::WP4::CCM::Configuration;
 use Cwd qw(getcwd);
@@ -220,6 +220,17 @@ and the function will thus succeed.
 $f->{PROFILE_FAILOVER} = $url;
 $pf = $f->download("profile");
 isnt($pf, undef, "Non-existing URL with a failover retrieves something");
+
+=pod
+
+Multiple comma seperated failover URLs are supported. Try two failovers,
+the first of which doesn't work.
+
+=cut
+
+$f->{PROFILE_FAILOVER} = "http://afjbsabfaf.fadsfsagfsagagf.org,$url";
+$pf = $f->download("profile");
+isnt($pf, undef, "Non-existing URL with a non-existing first failover retrieves something");
 
 =pod
 

@@ -46,6 +46,9 @@ sub app_options {
           { NAME    => 'profile-time=s',
             HELP    => 'Unix timestamp as modification time of profile' },
 
+          { NAME    => 'proxy=s',
+            HELP    => 'Proxy to use for HTTP(S)' },
+
           { NAME    => 'context|c=s',
             HELP    => 'URL of context to fetch' },
 
